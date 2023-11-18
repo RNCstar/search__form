@@ -1,0 +1,101 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+form {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    padding: 8px;
+    background-color: #eff8f0;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: 0.3s ease width;
+}
+
+input, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+    outline: transparent
+}
+
+#search_submit {
+    position: absolute;
+    background-color: rgb(204, 68, 204);
+    width: 26px;
+    height: 26px;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+    transition: 0.3s ease all;
+}
+
+#search_input {
+    position: absolute;
+    width: 212px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 66px;
+    color: #000;
+    font-size: 18px;
+    background-color: transparent;
+
+}
+
+#search_input::placeholder {
+    color: rgb(204, 68, 204);
+}
+
+#search_submit::before, #search_submit::after {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background-color: rgb(204, 68, 204);
+    position: absolute;
+    left: 26px;
+    top: 22px;
+    transform: rotate(-43deg);
+    box-shadow: 0 0 0 1px #eff8f0;
+
+}
+
+.active {
+    width: 270px;
+}
+
+form.active #search_submit {
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    left: 8px;
+}
+
+form.active #search_submit::after,
+form.active #search_submit::before {
+    left: 23px;
+    top: 18px;
+}
+
+form.active #search_submit::after {
+    animation: rotateRight 0.2s ease 0.3s forwards;
+}
+
+@keyframes rotateRight {
+    0% {
+        transform: rotate(-43deg);
+    }
+
+    100% {
+        transform: rotate(43deg)    ;
+    }
+}
